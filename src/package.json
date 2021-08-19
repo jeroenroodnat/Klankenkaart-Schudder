@@ -1,0 +1,20 @@
+{
+  "title": "Klankenkaart schudder",
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "main": "index.tsx",
+  "devDependencies": {
+    "react-scripts": "latest"
+  },
+  "description": "47 Klanken om te oefenen. Elke keer worden de klanten geschud om de volgorde te veranderen.",
+  "dependencies": {
+    "typescript": "latest",
+    "react-dom": "latest",
+    "react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react": "latest",
+    "@material-ui/icons": "latest",
+    "@material-ui/core": "latest"
+  }
+}
