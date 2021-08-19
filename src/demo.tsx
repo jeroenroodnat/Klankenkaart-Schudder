@@ -199,7 +199,7 @@ export default function TextMobileStepper() {
   return (
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
-        <Typography>Oefen de klank</Typography>
+        <Typography>Spreek de letter hardop uit en oefen de klanken</Typography>
       </Paper>
       <Box textAlign="center">
         <Typography variant="h1" component="h2" gutterBottom>
