@@ -12,6 +12,17 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import { createTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import { palette } from '@material-ui/system';
+import './twemoji-awesome.css';
+
+const theme = createTheme({
+  palette: {
+    primary: blue,
+  },
+});
+
 
 const tutorialSteps = [
   {
@@ -159,6 +170,10 @@ const tutorialSteps = [
 
 const shuffledSteps = tutorialSteps.sort((a, b) => 0.5 - Math.random());
 
+const colors = ["#FFADAD","#FFD6A5","#FDFFB6","#CAFFBF","#9BF6FF","#A0C4FF","#BDB2FF","#FFC6FF"];
+const randomColor0 = colors.sort((a, b) => 0.5 - Math.random())[0];
+const randomColor1 = colors.sort((a, b) => 0.5 - Math.random())[0];
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -170,7 +185,10 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       height: 50,
       paddingLeft: theme.spacing(4),
-      backgroundColor: theme.palette.background.default
+      backgroundColor: randomColor0
+    },
+    bottom: {
+      backgroundColor: randomColor1
     },
     img: {
       height: 255,
@@ -182,11 +200,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+
 export default function TextMobileStepper() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = shuffledSteps.length;
+  const maxSteps = shuffledSteps.length+1;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -201,19 +220,21 @@ export default function TextMobileStepper() {
       <Paper square elevation={0} className={classes.header}>
         <Typography>Spreek de letter hardop uit en oefen de klanken</Typography>
       </Paper>
-      <Box textAlign="center">
-        <Typography variant="h1" component="h2" gutterBottom>
-          {shuffledSteps[activeStep].label}
-        </Typography>
+      <Box textAlign="center" >
+        {activeStep === maxSteps - 1
+          ? <Typography variant="h1" gutterBottom className="twa twa-lg twa-poop" />
+          : <Typography variant="h1" gutterBottom>{shuffledSteps[activeStep].label}</Typography>
+        }
       </Box>
       <MobileStepper
+        className={classes.bottom}
         steps={maxSteps}
         position="static"
         variant="text"
         activeStep={activeStep}
         nextButton={
           <Button
-            size="small"
+            size="large"
             onClick={handleNext}
             disabled={activeStep === maxSteps - 1}
           >
@@ -226,7 +247,7 @@ export default function TextMobileStepper() {
           </Button>
         }
         backButton={
-          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+          <Button size="large" onClick={handleBack} disabled={activeStep === 0}>
             {theme.direction === "rtl" ? (
               <KeyboardArrowRight />
             ) : (
