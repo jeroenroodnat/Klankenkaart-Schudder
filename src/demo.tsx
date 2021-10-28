@@ -23,7 +23,7 @@ const theme = createTheme({
   },
 });
 
-const emojiSteps = ["twa-poop","twa-heart","twa-thumbsup","twa-fried_shrimp","twa-avocado","twa-unicorn","twa-jack-o-lantern","twa-ghost","twa-cookie","twa-ghost","twa-balloon","twa-kissing_heart","twa-joy","twa-laughing","twa-sailboat","twa-skull"];
+const emojiSteps = ["twa-poop","twa-heart","twa-thumbsup","twa-fried-shrimp","twa-avocado","twa-unicorn","twa-jack-o-lantern","twa-ghost","twa-cookie","twa-ghost","twa-balloon","twa-kissing-heart","twa-joy","twa-laughing","twa-sailboat","twa-skull"];
 
 const tutorialSteps = [
   {
