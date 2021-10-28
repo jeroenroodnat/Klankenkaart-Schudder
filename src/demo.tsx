@@ -23,6 +23,7 @@ const theme = createTheme({
   },
 });
 
+const emojiSteps = ["twa-poop","twa-heart","twa-thumbsup","twa-fried_shrimp","twa-avocado","twa-unicorn","twa-jack-o-lantern","twa-ghost","twa-cookie","twa-ghost","twa-balloon","twa-kissing_heart","twa-joy","twa-laughing","twa-sailboat","twa-skull"];
 
 const tutorialSteps = [
   {
@@ -169,6 +170,8 @@ const tutorialSteps = [
 ];
 
 const shuffledSteps = tutorialSteps.sort((a, b) => 0.5 - Math.random());
+var randomEmoji = emojiSteps.sort((a, b) => 0.5 - Math.random())[0];
+randomEmoji = "twa twa-lg " + randomEmoji;
 
 const colors = ["#FFADAD","#FFD6A5","#FDFFB6","#CAFFBF","#9BF6FF","#A0C4FF","#BDB2FF","#FFC6FF"];
 const randomColor0 = colors.sort((a, b) => 0.5 - Math.random())[0];
@@ -222,7 +225,7 @@ export default function TextMobileStepper() {
       </Paper>
       <Box textAlign="center" >
         {activeStep === maxSteps - 1
-          ? <Typography variant="h1" gutterBottom className="twa twa-lg twa-poop" />
+          ? <Typography variant="h1" gutterBottom className={randomEmoji} />
           : <Typography variant="h1" gutterBottom>{shuffledSteps[activeStep].label}</Typography>
         }
       </Box>
